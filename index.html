@@ -22,8 +22,19 @@
     button:hover { background-color: #45a049; }
 
     .description { 
-        font-size: 18px; color: #222; margin: 20px 0; 
-        max-width: 800px; margin-left: auto; margin-right: auto;
+        font-size: 18px; 
+        color: #222; 
+        margin: 20px 0; 
+        max-width: 800px; 
+        padding: 15px 20px;     /* tło opisu */
+        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0); /* <-- przezroczyste na start */
+        border-radius: 10px; 
+         box-shadow: none; /* <-- brak cienia na start */
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        margin-left: auto; 
+        margin-right: auto;
+         transition: background-color 0.3s, box-shadow 0.3s; /* opcjonalne ładne przejście */
     }
 
     .gallery { display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
@@ -77,6 +88,10 @@
 #btnBeginner:hover {
     background-color: #a000a0; /* jaśniejszy odcień przy najechaniu */
 }
+button.active {
+    background-color: #357a38; /* ciemniejszy zielony */
+}
+
 
 
 </style>
@@ -112,30 +127,30 @@ const spidersData = {
     ],  
     brachypelmy: [
         {name: "Brachypelma hamorii", img: "hamori.jpg", desc: "Pająki te dorastają do ok 6-8 cm długości ciała i ok 15-17 cm rozstawu odnóży.", link: "hamorii.html"},
-        {name: "Brachypelma emilia", img: "emilia.jpg", desc: "Dorasta do 6-7 cm DC, a rozpostartymi odnóżami mierzy około 13-15 cm"},
-        {name: "Brachypelma boehmei", img: "boehmei.jpg", desc: "Dorasta do 6-7 cm ciała, z rozpostartymi odnóżami do 14 cm"},
-        {name: "Brachypelma albiceps", img: "albiceps.jpg", desc: "Spokojny i powolny, piękny kolor nóg."},
-        {name: "Brachypelma auratum", img: "auratum.jpg", desc: "Długość jego ciała wynosi około 7-8 cm, z rozpostartymi odnóżami dorasta do 15 cm"}
+        {name: "Brachypelma emilia", img: "emilia.jpg", desc: "Dorasta do 6-7 cm DC, a rozpostartymi odnóżami mierzy około 13-15 cm", link: "emilia.html"},
+        {name: "Brachypelma boehmei", img: "boehmei.jpg", desc: "Dorasta do 6-7 cm ciała, z rozpostartymi odnóżami do 14 cm", link: "boehmei.html"},
+        {name: "Brachypelma albiceps", img: "albiceps.jpg", desc: "Spokojny i powolny, piękny kolor nóg.", link: "albiceps.html"},
+        {name: "Brachypelma auratum", img: "auratum.jpg", desc: "Długość jego ciała wynosi około 7-8 cm, z rozpostartymi odnóżami dorasta do 15 cm", link: "auratum.html"}
     ],
     tliltocatle: [
-        {name: "Tliltocatl albopilosus", img: "albopilosus.jpg", desc: "Opis pierwszego Tliltocatle"},
-        {name: "Tliltocatl vagans", img: "vagans.jpg", desc: "Opis drugiego Tliltocatle"},
+        {name: "Tliltocatl albopilosus", img: "albopilosus.jpg", desc: "Opis pierwszego Tliltocatle", link: "albopilosus.html"},
+        {name: "Tliltocatl vagans", img: "vagans.jpg", desc: "Opis drugiego Tliltocatle", link: "vagans.html"},
         //{name: "Tliltocatle sp.3", img: "https://upload.wikimedia.org/wikipedia/commons/1/12/Nephila_clavipes_female.jpg", desc: "Opis trzeciego Tliltocatle"},
         //{name: "Tliltocatle sp.4", img: "https://upload.wikimedia.org/wikipedia/commons/6/61/Latrodectus_mactans_2.jpg", desc: "Opis czwartego Tliltocatle"},
         //{name: "Tliltocatle sp.5", img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Araneus_diadematus_female.jpg", desc: "Opis piątego Tliltocatle"}
     ],
     grammostole: [
-        {name: "Grammostola rosea", img: "rosea.jpg", desc: "Spokojna, powolna, łatwa w utrzymaniu."},
-        {name: "Grammostola pulchripes", img: "pulchripes.jpg", desc: "Ciemna, elegancka."},
-        {name: "Grammostola pulchra", img: "pulchra.jpg", desc: "Długość ciała: ~ 7-8 cm; rozpiętość odnóży: ~ 15-17 cm."},
+        {name: "Grammostola rosea", img: "rosea.jpg", desc: "Spokojna, powolna, łatwa w utrzymaniu.", link: "rosea.html"},
+        {name: "Grammostola pulchripes", img: "pulchripes.jpg", desc: "Ciemna, elegancka.", link: "pulchripes.html"},
+        {name: "Grammostola pulchra", img: "pulchra.jpg", desc: "Długość ciała: ~ 7-8 cm; rozpiętość odnóży: ~ 15-17 cm.", link: "pulchra.html"},
        // {name: "Grammostola iheringi", img: "https://upload.wikimedia.org/wikipedia/commons/1/12/Nephila_clavipes_female.jpg", desc: "Duży ptasznik, spokojny charakter."},
        // {name: "Grammostola porteri", img: "https://upload.wikimedia.org/wikipedia/commons/6/61/Latrodectus_mactans_2.jpg", desc: "Łatwy w utrzymaniu, powolny."}
     ],
     avicularie: [
-        {name: "Avicularia avicularia", img: "avicularia_avicularia.jpg", desc: "Kolorowy, arborealny ptasznik."},
+        {name: "Avicularia avicularia", img: "avicularia_avicularia.jpg", desc: "Kolorowy, arborealny ptasznik.", link: "avicularia_avicularia.html"},
        // {name: "Avicularia versicolor", img: "https://upload.wikimedia.org/wikipedia/commons/1/12/Nephila_clavipes_female.jpg", desc: "Piękne kolory i ruchliwość."},
-        {name: "Avicularia metallica", img: "avicularia.jpg", desc: "Aktywny, potrzebuje wyższego terrarium."},
-        {name: "Avicularia purpurea", img: "purpurea.jpg", desc: "Przeważnie łagodne i szybkie."},
+        {name: "Avicularia metallica", img: "avicularia.jpg", desc: "Aktywny, potrzebuje wyższego terrarium.", link: "avicularia.html"},
+        {name: "Avicularia purpurea", img: "purpurea.jpg", desc: "Przeważnie łagodne i szybkie.", link: "purpurea.html"},
        // {name: "Avicularia minatrix", img: "https://upload.wikimedia.org/wikipedia/commons/1/12/Nephila_clavipes_female.jpg", desc: "Łatwa w obserwacji, ruchliwa."}
     ]
     
@@ -147,7 +162,46 @@ const description = document.getElementById("description");
 
 
 
-function showGallery(type) {
+//function showGallery(type) {
+function showGallery(type) {{
+    // najpierw usuń klasę 'active' ze wszystkich przycisków
+    document.querySelectorAll('.button-container button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // dodaj klasę 'active' do klikniętego przycisku
+    const btnIdMap = {
+        brachypelmy: 'btnBrachypelmy',
+        tliltocatle: 'btnTliltocatle',
+        grammostole: 'btnGrammostole',
+        avicularie: 'btnAvicularie'
+    };
+    const activeBtn = document.getElementById(btnIdMap[type]);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    // reszta funkcji...
+    gallery.innerHTML = '';
+    const typeDescriptions = {
+        brachypelmy: "Spokojne, powolne ptaszniki. Długowieczne i odporne na błędy w hodowli.",
+        tliltocatle: "Tak naprawdę bardzo podobne do brachypelm, odzielone do innego rodzaju.",
+        grammostole: "Długo rosną, spokojne i odporne na błędy.",
+        avicularie: "Kolorowe ptaszniki nadrzewne, bardziej wymagające w hodowli. Wymagaja wyższego terrarium."
+    };
+    if (description) {
+        description.textContent = typeDescriptions[type] || "Brak opisu dla tego gatunku.";
+    }
+
+    spidersData[type].forEach(spider => {
+        const card = document.createElement('div');
+        card.className = 'spider-card';
+        card.innerHTML = `<h3>${spider.name}</h3><img src="${spider.img}" alt="${spider.name}"><p>${spider.desc}</p>`;
+        gallery.appendChild(card);
+        card.addEventListener('click', () => {
+            window.location.href = spider.link;
+        });
+    });
+}
+
     
     gallery.innerHTML = '';
     const typeDescriptions = {
