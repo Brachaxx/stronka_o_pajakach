@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -26,16 +27,24 @@
         color: #222; 
         margin: 20px 0; 
         max-width: 800px; 
-        padding: 15px 20px;     /* tło opisu */
-        background-color: rgba(255, 255, 255, 0.8);
-        background-color: rgba(255, 255, 255, 0); /* <-- przezroczyste na start */
-        border-radius: 10px; 
-         box-shadow: none; /* <-- brak cienia na start */
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        padding: 15px 20px;    /* tło opisu */
+        /*background-color: rgba(255, 255, 255, 0.8); */
+        /*background-color: rgba(255, 255, 255, 0); *//* <-- przezroczyste na start */
+        border-radius: 30px; 
         margin-left: auto; 
         margin-right: auto;
+         background-color: transparent;
+        /* box-shadow: none;*/ /* <-- brak cienia na start */
+        /*box-shadow: 2px 2px 8px rgba(0,0,0,0.2); */
+       /* margin-left: auto; 
+        margin-right: auto; */
+        box-shadow: none;
          transition: background-color 0.3s, box-shadow 0.3s; /* opcjonalne ładne przejście */
     }
+    .description.active {
+    background-color: rgba(255, 206, 231, 0.8); /* tło pojawia się po kliknięciu */
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);    /* cień pojawia się po kliknięciu */
+}
 
     .gallery { display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
     .spider-card { 
@@ -162,80 +171,57 @@ const description = document.getElementById("description");
 
 
 
-//function showGallery(type) {
-function showGallery(type) {{
-    // najpierw usuń klasę 'active' ze wszystkich przycisków
-    document.querySelectorAll('.button-container button').forEach(btn => {
-        btn.classList.remove('active');
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    const gallery = document.getElementById('gallery');
+    const description = document.getElementById('description');
 
-    // dodaj klasę 'active' do klikniętego przycisku
-    const btnIdMap = {
-        brachypelmy: 'btnBrachypelmy',
-        tliltocatle: 'btnTliltocatle',
-        grammostole: 'btnGrammostole',
-        avicularie: 'btnAvicularie'
-    };
-    const activeBtn = document.getElementById(btnIdMap[type]);
-    if (activeBtn) activeBtn.classList.add('active');
-
-    // reszta funkcji...
-    gallery.innerHTML = '';
     const typeDescriptions = {
         brachypelmy: "Spokojne, powolne ptaszniki. Długowieczne i odporne na błędy w hodowli.",
         tliltocatle: "Tak naprawdę bardzo podobne do brachypelm, odzielone do innego rodzaju.",
         grammostole: "Długo rosną, spokojne i odporne na błędy.",
-        avicularie: "Kolorowe ptaszniki nadrzewne, bardziej wymagające w hodowli. Wymagaja wyższego terrarium."
+        avicularie: "Kolorowe ptaszniki nadrzewne, bardziej wymagające w hodowli. Wymagają wyższego terrarium."
     };
-    if (description) {
-        description.textContent = typeDescriptions[type] || "Brak opisu dla tego gatunku.";
-    }
 
-    spidersData[type].forEach(spider => {
-        const card = document.createElement('div');
-        card.className = 'spider-card';
-        card.innerHTML = `<h3>${spider.name}</h3><img src="${spider.img}" alt="${spider.name}"><p>${spider.desc}</p>`;
-        gallery.appendChild(card);
-        card.addEventListener('click', () => {
-            window.location.href = spider.link;
+    function showGallery(type) {
+        // usuń klasę 'active' ze wszystkich przycisków
+        document.querySelectorAll('.button-container button').forEach(btn => btn.classList.remove('active'));
+
+        // ustaw aktywny przycisk
+        const btnIdMap = {
+            brachypelmy: 'btnBrachypelmy',
+            tliltocatle: 'btnTliltocatle',
+            grammostole: 'btnGrammostole',
+            avicularie: 'btnAvicularie'
+        };
+        const activeBtn = document.getElementById(btnIdMap[type]);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        // ustaw opis i włącz tło tylko po kliknięciu
+        if (description) {
+            description.textContent = typeDescriptions[type] || "Brak opisu dla tego gatunku.";
+            description.classList.add("active"); 
+        }
+
+        // wyczyść galerię i dodaj nowe karty
+        gallery.innerHTML = '';
+        spidersData[type].forEach(spider => {
+            const card = document.createElement('div');
+            card.className = 'spider-card';
+            card.innerHTML = `<h3>${spider.name}</h3><img src="${spider.img}" alt="${spider.name}"><p>${spider.desc}</p>`;
+            gallery.appendChild(card);
+
+            card.addEventListener('click', () => {
+                window.location.href = spider.link;
+            });
         });
-    });
-}
-
-    
-    gallery.innerHTML = '';
-    const typeDescriptions = {
-    brachypelmy: "Spokojne, powolne ptaszniki. Długowieczne i odporne na błędy w hodowli.",
-    tliltocatle: "Tak naprawdę bardzo podobne do brachypelm, odzielone do innego rodzaju.",
-    grammostole: "Długo rosną, spokojne i odporne na błędy.",
-    avicularie: "Kolorowe ptaszniki nadrzewne, bardziej wymagające w hodowli. Wymagaja wyższego terrarium."
-    
-}; //const description = document.getElementById("description");
- if (description) {
-        description.textContent = typeDescriptions[type] || "Brak opisu dla tego gatunku.";
     }
 
-
-    // pokaż krótki opis gatunku nad zdjęciami
-   // const firstSpider = spidersData[type][0];
-   // description.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}Spokojne, powolne ptaszniki idealne dla początkujących. Długowieczne i odporne na błędy w hodowli.`;
-// `Wybrany gatunek: ${type.charAt(0).toUpperCase() + type.slice(1)} – ${firstSpider.desc}`
-    spidersData[type].forEach(spider => {
-        const card = document.createElement('div');
-        card.className = 'spider-card';
-        card.innerHTML = `<h3>${spider.name}</h3><img src="${spider.img}" alt="${spider.name}"><p>${spider.desc}</p>`;
-        gallery.appendChild(card);
-        // po kliknięciu pokaż szczegóły
-        card.addEventListener('click', () => {
-    window.location.href = spider.link;
-});
-});
-}
-
-        //gallery.appendChild(card);
-
-    document.getElementById('btnBeginner').addEventListener('click', () => {
-    window.location.href = "beginner.html";
+    // przypisz eventy do przycisków
+    document.getElementById('btnBeginner').addEventListener('click', () => window.location.href = "beginner.html");
+    document.getElementById('btnBrachypelmy').addEventListener('click', () => showGallery('brachypelmy'));
+    document.getElementById('btnTliltocatle').addEventListener('click', () => showGallery('tliltocatle'));
+    document.getElementById('btnGrammostole').addEventListener('click', () => showGallery('grammostole'));
+    document.getElementById('btnAvicularie').addEventListener('click', () => showGallery('avicularie'));
 });
 
 
