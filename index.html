@@ -23,6 +23,31 @@
     }
     button:hover { background-color: #45a049; }
 
+  .welcome {
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.welcome img {
+    max-width: 20%;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+/* tło tylko dla paragrafu */
+.welcome-text {
+    background-color: rgba(255, 206, 231, 0.8);
+    border-radius: 30px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-top: 15px;
+    display: inline-block; /* żeby nie robiło się za szerokie */
+
+
+}
+
+
     .description { 
         
         font-size: 18px; 
@@ -109,6 +134,23 @@ button.active {
 </head>
 <body>
 <h1>🕷️ Galeria Ptaszników 🕷️</h1>
+<div class="welcome" id="welcome">
+    <img src="hamori.jpg" alt="Ptasznik powitalny">
+    <img src="avicularia.jpg" alt="Ptasznik powitalny">
+    <img src="boehmei.jpg" alt="Ptasznik powitalny">
+    <img src="rosea.jpg" alt="Ptasznik powitalny">
+
+    <h2 style="font-size:30px;">Hej witaj na mojej stronce! 🕷️</h2>
+
+    <p class="welcome-text">
+        Dowiesz się tutaj wielu informacji na temat ptaszników oraz ich hodowli – 
+        niezależnie czy dopiero zaczynasz, czy masz już doświadczenie!  
+        Wybierz poniżej czego chcesz się dowiedzieć. Miłej zabawy!
+    </p>
+</div>
+
+
+
 <div id="spiderDetails" class="details"></div>
 
 <div class="beginner-button-container">
@@ -216,6 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = spider.link;
             });
         });
+        // przewiń do galerii po kliknięciu
+gallery.scrollIntoView({ behavior: 'smooth' });
+
     }
 
     // przypisz eventy do przycisków
