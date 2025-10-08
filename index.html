@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    <link rel="icon" href="https://twemoji.maxcdn.com/v/latest/72x72/1f577.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+
 <meta charset="UTF-8">
 <title>Galeria Ptaszników 🕷️</title>
 <style>
@@ -130,6 +134,107 @@ button.active {
 
 
 
+
+
+
+/* ogólny styl lian */
+/* .liana {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 0;
+    pointer-events: none; *//* żeby liana nie blokowała kliknięć */
+   /* background-repeat: no-repeat;
+    background-size: cover;
+}*/
+
+/* lewa i prawa liana */
+/*.liana-left {
+    left: 0;
+    background-image: url("llianawsystkie.jpg"); 
+}
+
+.liana-right {
+    right: 0;
+    background-image: url("lianawsystkie.jpg");
+}
+*/
+/* przyciski jako „listki” */
+/*.leaf {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    pointer-events: auto; *//* włącz klikanie */
+   /* transition: transform 0.2s, background-color 0.2s;
+}
+
+.leaf:hover {
+    transform: scale(1.1) rotate(-5deg);
+    background-color: #3a923e;
+}
+*/
+
+
+.liana {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 0;
+    pointer-events: none; /* żeby liana nie blokowała klikania */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.liana-left {
+    left: 0;
+    background-image: url("lia.jpg");
+}
+
+.liana-right {
+    right: 0;
+    background-image: url("lliana.jpg");
+}
+
+/* pająki na liściach */
+.leaf-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    clip-path: path("M50 15 C20 -10, -10 40, 50 95 C110 40, 80 -10, 50 15 Z"); /* kształt serca */
+    pointer-events: auto; /* tu klik działa */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.leaf-img:hover {
+    transform: scale(1.1);
+}
+
+
+
+button {
+    font-family: 'Raleway', sans-serif;          /* przyciski też z czcionką */
+}
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -143,13 +248,12 @@ button.active {
     <h2 style="font-size:30px;">Hej witaj na mojej stronce! 🕷️</h2>
 
     <p class="welcome-text">
-        Dowiesz się tutaj wielu informacji na temat ptaszników oraz ich hodowli – 
-        niezależnie czy dopiero zaczynasz, czy masz już doświadczenie!  
-        Wybierz poniżej czego chcesz się dowiedzieć. Miłej zabawy!
-    </p>
+    <strong> Dowiesz się tutaj wielu informacji na temat ptaszników oraz ich hodowli – 
+    niezależnie, czy dopiero zaczynasz, czy masz już doświadczenie!  
+    Wybierz poniżej, czego chcesz się dowiedzieć. Miłej zabawy!</strong>
+</p>
+
 </div>
-
-
 
 <div id="spiderDetails" class="details"></div>
 
@@ -166,6 +270,22 @@ button.active {
     
     
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  body {
+    font-family: 'Raleway', sans-serif;
+  }
+</style>
 
 
 <!-- Tutaj pojawi się opis wybranego gatunku -->
@@ -188,23 +308,16 @@ const spidersData = {
     tliltocatle: [
         {name: "Tliltocatl albopilosus", img: "albopilosus.jpg", desc: "Opis pierwszego Tliltocatle", link: "albopilosus.html"},
         {name: "Tliltocatl vagans", img: "vagans.jpg", desc: "Opis drugiego Tliltocatle", link: "vagans.html"},
-        //{name: "Tliltocatle sp.3", img: "https://upload.wikimedia.org/wikipedia/commons/1/12/Nephila_clavipes_female.jpg", desc: "Opis trzeciego Tliltocatle"},
-        //{name: "Tliltocatle sp.4", img: "https://upload.wikimedia.org/wikipedia/commons/6/61/Latrodectus_mactans_2.jpg", desc: "Opis czwartego Tliltocatle"},
-        //{name: "Tliltocatle sp.5", img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Araneus_diadematus_female.jpg", desc: "Opis piątego Tliltocatle"}
     ],
     grammostole: [
         {name: "Grammostola rosea", img: "rosea.jpg", desc: "Spokojna, powolna, łatwa w utrzymaniu.", link: "rosea.html"},
         {name: "Grammostola pulchripes", img: "pulchripes.jpg", desc: "Ciemna, elegancka.", link: "pulchripes.html"},
         {name: "Grammostola pulchra", img: "pulchra.jpg", desc: "Długość ciała: ~ 7-8 cm; rozpiętość odnóży: ~ 15-17 cm.", link: "pulchra.html"},
-       // {name: "Grammostola iheringi", img: "https://upload.wikimedia.org/wikipedia/commons/1/12/Nephila_clavipes_female.jpg", desc: "Duży ptasznik, spokojny charakter."},
-       // {name: "Grammostola porteri", img: "https://upload.wikimedia.org/wikipedia/commons/6/61/Latrodectus_mactans_2.jpg", desc: "Łatwy w utrzymaniu, powolny."}
-    ],
+       ],
     avicularie: [
         {name: "Avicularia avicularia", img: "avicularia_avicularia.jpg", desc: "Kolorowy, arborealny ptasznik.", link: "avicularia_avicularia.html"},
-       // {name: "Avicularia versicolor", img: "https://upload.wikimedia.org/wikipedia/commons/1/12/Nephila_clavipes_female.jpg", desc: "Piękne kolory i ruchliwość."},
         {name: "Avicularia metallica", img: "avicularia.jpg", desc: "Aktywny, potrzebuje wyższego terrarium.", link: "avicularia.html"},
         {name: "Avicularia purpurea", img: "purpurea.jpg", desc: "Przeważnie łagodne i szybkie.", link: "purpurea.html"},
-       // {name: "Avicularia minatrix", img: "https://upload.wikimedia.org/wikipedia/commons/1/12/Nephila_clavipes_female.jpg", desc: "Łatwa w obserwacji, ruchliwa."}
     ]
     
 };
@@ -225,6 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         grammostole: "Długo rosną, spokojne i odporne na błędy.",
         avicularie: "Kolorowe ptaszniki nadrzewne, bardziej wymagające w hodowli. Wymagają wyższego terrarium."
     };
+    
 
     function showGallery(type) {
         // usuń klasę 'active' ze wszystkich przycisków
@@ -242,9 +356,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // ustaw opis i włącz tło tylko po kliknięciu
         if (description) {
-            description.textContent = typeDescriptions[type] || "Brak opisu dla tego gatunku.";
-            description.classList.add("active"); 
-        }
+    description.innerHTML = `<strong>${typeDescriptions[type]}</strong>` || "Brak opisu dla tego gatunku.";
+    description.classList.add("active"); 
+}
+
 
         // wyczyść galerię i dodaj nowe karty
         gallery.innerHTML = '';
