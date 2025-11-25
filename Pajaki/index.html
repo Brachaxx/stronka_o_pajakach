@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <link rel="icon" href="https://twemoji.maxcdn.com/v/latest/72x72/1f577.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+
+<meta charset="UTF-8">
+<title>Galeria Ptaszników 🕷️</title>
+<style>
+    body { 
+        font-family: Arial, sans-serif; 
+        background-size: cover;
+        margin: 0; padding: 0; 
+        background-image: url("tlo.jpg");
+       /* background-color: #efadce; */
+        text-align: center;
+    }
+    h1 { color: rgb(88, 2, 54); font-size: 60px; margin: 40px 0 20px 0; }
+    .button-container { margin-bottom: 20px; }
+    button { 
+        padding: 15px 25px; font-size: 18px; margin: 10px; 
+        cursor: pointer; border-radius: 8px; border: none;
+        background-color: #4CAF50; color: white;
+        transition: background-color 0.3s;
+    }
+    button:hover { background-color: #45a049; }
+
+  .welcome {
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.welcome img {
+    max-width: 20%;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+/* tło tylko dla paragrafu */
+.welcome-text {
+    background-color: rgba(255, 206, 231, 0.8);
+    border-radius: 30px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-top: 15px;
+    display: inline-block; /* żeby nie robiło się za szerokie */
+
+
+}
+
+
+    .description { 
+        
+        font-size: 18px; 
+        color: #222; 
+        margin: 20px 0; 
+        max-width: 800px; 
+        padding: 15px 20px;    /* tło opisu */
+        /*background-color: rgba(255, 255, 255, 0.8); */
+        /*background-color: rgba(255, 255, 255, 0); *//* <-- przezroczyste na start */
+        border-radius: 30px; 
+        margin-left: auto; 
+        margin-right: auto;
+         background-color: transparent;
+        /* box-shadow: none;*/ /* <-- brak cienia na start */
+        /*box-shadow: 2px 2px 8px rgba(0,0,0,0.2); */
+       /* margin-left: auto; 
+        margin-right: auto; */
+        box-shadow: none;
+         transition: background-color 0.3s, box-shadow 0.3s; /* opcjonalne ładne przejście */
+    }
+    .description.active {
+    background-color: rgba(255, 206, 231, 0.8); /* tło pojawia się po kliknięciu */
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);    /* cień pojawia się po kliknięciu */
+}
+
+    .gallery { display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
+    .spider-card { 
+        background-color: white; border-radius: 8px; margin: 10px; 
+        width: 200px; cursor: pointer; padding: 10px; 
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .spider-card:hover { transform: scale(1.05); box-shadow: 4px 4px 10px rgba(0,0,0,0.3); }
+    .spider-card img { width: 100%; border-radius: 5px; }
+    .spider-card h3 { margin: 10px 0 5px 0; }
+    .spider-card p { font-size: 14px; color: #333; margin: 0; }
+
+    .details {
+        display: none;   
+    margin: 30px auto;
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+    text-align: center;
+}
+.details img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+.details h2 {
+    margin: 0;
+    color: rgb(88, 2, 54);
+}
+.beginner-button-container {
+    text-align: center;
+    margin-bottom: 30px; /* odstęp od nagłówka */
+}
+
+#btnBeginner {
+    background-color: #cc0593; /* ciemny róż/fiolet */
+    color: white;
+    font-size: 20px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#btnBeginner:hover {
+    background-color: #a000a0; /* jaśniejszy odcień przy najechaniu */
+}
+button.active {
+    background-color: #357a38; /* ciemniejszy zielony */
+}
+
+
+
+
+
+
+/* ogólny styl lian */
+/* .liana {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 0;
+    pointer-events: none; *//* żeby liana nie blokowała kliknięć */
+   /* background-repeat: no-repeat;
+    background-size: cover;
+}*/
+
+/* lewa i prawa liana */
+/*.liana-left {
+    left: 0;
+    background-image: url("llianawsystkie.jpg"); 
+}
+
+.liana-right {
+    right: 0;
+    background-image: url("lianawsystkie.jpg");
+}
+*/
+/* przyciski jako „listki” */
+/*.leaf {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    pointer-events: auto; *//* włącz klikanie */
+   /* transition: transform 0.2s, background-color 0.2s;
+}
+
+.leaf:hover {
+    transform: scale(1.1) rotate(-5deg);
+    background-color: #3a923e;
+}
+*/
+
+
+.liana {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 0;
+    pointer-events: none; /* żeby liana nie blokowała klikania */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.liana-left {
+    left: 0;
+    background-image: url("lia.jpg");
+}
+
+.liana-right {
+    right: 0;
+    background-image: url("lliana.jpg");
+}
+
+/* pająki na liściach */
+.leaf-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    clip-path: path("M50 15 C20 -10, -10 40, 50 95 C110 40, 80 -10, 50 15 Z"); /* kształt serca */
+    pointer-events: auto; /* tu klik działa */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.leaf-img:hover {
+    transform: scale(1.1);
+}
+
+
+
+button {
+    font-family: 'Raleway', sans-serif;          /* przyciski też z czcionką */
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+<h1>🕷️ Galeria Ptaszników 🕷️</h1>
+<div class="welcome" id="welcome">
+    <img src="hamori.jpg" alt="Ptasznik powitalny">
+    <img src="avicularia.jpg" alt="Ptasznik powitalny">
+    <img src="boehmei.jpg" alt="Ptasznik powitalny">
+    <img src="rosea.jpg" alt="Ptasznik powitalny">
+
+    <h2 style="font-size:30px;">Hej witaj na mojej stronce! 🕷️</h2>
+
+    <p class="welcome-text">
+    <strong> Dowiesz się tutaj wielu informacji na temat ptaszników oraz ich hodowli – 
+    niezależnie, czy dopiero zaczynasz, czy masz już doświadczenie!  
+    Wybierz poniżej, czego chcesz się dowiedzieć. Miłej zabawy!</strong>
+</p>
+
+</div>
+
+<div id="spiderDetails" class="details"></div>
+
+<div class="beginner-button-container">
+    <button id="btnBeginner">Dla początkujących 🐾</button>
+</div>
+
+<div class="button-container">
+
+    <button id="btnBrachypelmy">Brachypelmy</button>
+    <button id="btnTliltocatle">Tliltocatle</button>
+    <button id="btnGrammostole">Grammostole</button>
+    <button id="btnAvicularie">Avicularie</button>
+    
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  body {
+    font-family: 'Raleway', sans-serif;
+  }
+</style>
+
+
+<!-- Tutaj pojawi się opis wybranego gatunku -->
+<div class="description" id="description"></div>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+const spidersData = {
+   beginner: [
+        {name: "Ptaszniki dla początkujących 🐾", img: "hamori.jpg", desc: "Kliknij, aby zobaczyć polecane gatunki.", link: "beginner.html"}
+    ],  
+    brachypelmy: [
+        {name: "Brachypelma hamorii", img: "hamori.jpg", desc: "Pająki te dorastają do ok 6-8 cm długości ciała i ok 15-17 cm rozstawu odnóży.", link: "hamorii.html"},
+        {name: "Brachypelma emilia", img: "emilia.jpg", desc: "Dorasta do 6-7 cm DC, a rozpostartymi odnóżami mierzy około 13-15 cm", link: "emilia.html"},
+        {name: "Brachypelma boehmei", img: "boehmei.jpg", desc: "Dorasta do 6-7 cm ciała, z rozpostartymi odnóżami do 14 cm", link: "boehmei.html"},
+        {name: "Brachypelma albiceps", img: "albiceps.jpg", desc: "Spokojny i powolny, piękny kolor nóg.", link: "albiceps.html"},
+        {name: "Brachypelma auratum", img: "auratum.jpg", desc: "Długość jego ciała wynosi około 7-8 cm, z rozpostartymi odnóżami dorasta do 15 cm", link: "auratum.html"}
+    ],
+    tliltocatle: [
+        {name: "Tliltocatl albopilosus", img: "albopilosus.jpg", desc: "Opis pierwszego Tliltocatle", link: "albopilosus.html"},
+        {name: "Tliltocatl vagans", img: "vagans.jpg", desc: "Opis drugiego Tliltocatle", link: "vagans.html"},
+    ],
+    grammostole: [
+        {name: "Grammostola rosea", img: "rosea.jpg", desc: "Spokojna, powolna, łatwa w utrzymaniu.", link: "rosea.html"},
+        {name: "Grammostola pulchripes", img: "pulchripes.jpg", desc: "Ciemna, elegancka.", link: "pulchripes.html"},
+        {name: "Grammostola pulchra", img: "pulchra.jpg", desc: "Długość ciała: ~ 7-8 cm; rozpiętość odnóży: ~ 15-17 cm.", link: "pulchra.html"},
+       ],
+    avicularie: [
+        {name: "Avicularia avicularia", img: "avicularia_avicularia.jpg", desc: "Kolorowy, arborealny ptasznik.", link: "avicularia_avicularia.html"},
+        {name: "Avicularia metallica", img: "avicularia.jpg", desc: "Aktywny, potrzebuje wyższego terrarium.", link: "avicularia.html"},
+        {name: "Avicularia purpurea", img: "purpurea.jpg", desc: "Przeważnie łagodne i szybkie.", link: "purpurea.html"},
+    ]
+    
+};
+
+const gallery = document.getElementById("gallery");
+const description = document.getElementById("description");
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const gallery = document.getElementById('gallery');
+    const description = document.getElementById('description');
+
+    const typeDescriptions = {
+        brachypelmy: "Spokojne, powolne ptaszniki. Długowieczne i odporne na błędy w hodowli.",
+        tliltocatle: "Tak naprawdę bardzo podobne do brachypelm, odzielone do innego rodzaju.",
+        grammostole: "Długo rosną, spokojne i odporne na błędy.",
+        avicularie: "Kolorowe ptaszniki nadrzewne, bardziej wymagające w hodowli. Wymagają wyższego terrarium."
+    };
+    
+
+    function showGallery(type) {
+        // usuń klasę 'active' ze wszystkich przycisków
+        document.querySelectorAll('.button-container button').forEach(btn => btn.classList.remove('active'));
+
+        // ustaw aktywny przycisk
+        const btnIdMap = {
+            brachypelmy: 'btnBrachypelmy',
+            tliltocatle: 'btnTliltocatle',
+            grammostole: 'btnGrammostole',
+            avicularie: 'btnAvicularie'
+        };
+        const activeBtn = document.getElementById(btnIdMap[type]);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        // ustaw opis i włącz tło tylko po kliknięciu
+        if (description) {
+    description.innerHTML = `<strong>${typeDescriptions[type]}</strong>` || "Brak opisu dla tego gatunku.";
+    description.classList.add("active"); 
+}
+
+
+        // wyczyść galerię i dodaj nowe karty
+        gallery.innerHTML = '';
+        spidersData[type].forEach(spider => {
+            const card = document.createElement('div');
+            card.className = 'spider-card';
+            card.innerHTML = `<h3>${spider.name}</h3><img src="${spider.img}" alt="${spider.name}"><p>${spider.desc}</p>`;
+            gallery.appendChild(card);
+
+            card.addEventListener('click', () => {
+                window.location.href = spider.link;
+            });
+        });
+        // przewiń do galerii po kliknięciu
+gallery.scrollIntoView({ behavior: 'smooth' });
+
+    }
+
+    // przypisz eventy do przycisków
+    document.getElementById('btnBeginner').addEventListener('click', () => window.location.href = "beginner.html");
+    document.getElementById('btnBrachypelmy').addEventListener('click', () => showGallery('brachypelmy'));
+    document.getElementById('btnTliltocatle').addEventListener('click', () => showGallery('tliltocatle'));
+    document.getElementById('btnGrammostole').addEventListener('click', () => showGallery('grammostole'));
+    document.getElementById('btnAvicularie').addEventListener('click', () => showGallery('avicularie'));
+});
+
+
+
+document.getElementById('btnBrachypelmy').addEventListener('click', () => showGallery('brachypelmy'));
+document.getElementById('btnTliltocatle').addEventListener('click', () => showGallery('tliltocatle'));
+document.getElementById('btnGrammostole').addEventListener('click', () => showGallery('grammostole'));
+document.getElementById('btnAvicularie').addEventListener('click', () => showGallery('avicularie'));
+function showDetails(spider) {
+    const details = document.getElementById('spiderDetails');
+    details.innerHTML = `
+        <h2>${spider.name}</h2>
+        <img src="${spider.img}" alt="${spider.name}">
+        <p>${spider.desc}</p>
+    `;
+    details.style.display = "block"; // <-- pokazuje po kliknięciu
+    details.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

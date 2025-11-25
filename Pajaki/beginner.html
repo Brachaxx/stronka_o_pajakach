@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <link rel="icon" href="https://twemoji.maxcdn.com/v/latest/72x72/1f577.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<title>Ptaszniki dla początkujących 🐾</title>
+<style>
+    body {
+        font-family: 'Raleway', sans-serif;
+        background-image: url("ftlo.jpg");
+         background-size: cover;         /* rozciąga na całe okno */
+    background-attachment: fixed;   /* sprawia, że tło się nie rusza */
+    background-position: center;    /* wyśrodkowanie */
+        margin: 0; padding: 0;
+        text-align: center;
+    }
+    h1 {
+        color: #490049;
+        font-size: 50px;
+        margin: 30px 0 20px 0;
+    }
+    .main-desc {
+    font-size: 20px;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    background: rgba(255, 226, 250, 0.8); /* półprzezroczyste białe tło */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1); /* delikatny cień */
+}
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    .spider-card {
+        background-color: white;
+        border-radius: 10px;
+        margin: 15px;
+        width: 250px;
+        padding: 15px;
+        box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .spider-card:hover {
+        transform: scale(1.05);
+        box-shadow: 5px 5px 12px rgba(0,0,0,0.3);
+    }
+    .spider-card img {
+        width: 100%;
+        border-radius: 8px;
+    }
+    .spider-card h3 {
+        margin: 10px 0 5px 0;
+        color: #8B008B;
+    }
+    .spider-card p {
+        font-size: 16px;
+        color: #444;
+    }
+    .back-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #8B008B;
+        color: white;
+        font-size: 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        margin-bottom: 40px;
+    }
+    .back-button:hover {
+        background-color: #a000a0;
+    }
+    
+</style>
+</head>
+<body>
+
+<h1>🐾 Jak zacząć przygodę z terrarystyką 🐾</h1>
+<p class="main-desc">Na początek warto wybrać spokojne, powolne i odporne na błędy ptaszniki.  
+zacznijmy od tego jak dużego pająka będziesz chciał?a kupić na początek:</p>
+
+<div class="gallery">
+    <a href="mlody.html" style="text-decoration:none; color:inherit;">
+        <div class="spider-card">
+            <h3>młody</h3>
+            <img src="mlody.jpg" alt="Brachypelma hamorii">
+            <p>Zwykle od L1 do ok. L5/L6. Mierzą najczęściej od kilku milimetrów do ~2 cm długości ciała </p>
+        </div>
+    </a>
+
+    <a href="podrostek.html" style="text-decoration:none; color:inherit;">
+        <div class="spider-card">
+            <h3>podrostek</h3>
+            <img src="podrostek.jpg" alt="Grammostola pulchra">
+            <p>Od L6 do L10. Mają kilka cm długości ciała. </p>
+        </div>
+    </a>
+
+    <a href="dorosly.html" style="text-decoration:none; color:inherit;">
+        <div class="spider-card">
+            <h3>dorosły</h3>
+            <img src="hamori.jpg" alt="Tliltocatl albopilosus">
+            <p>Rozmiar dorosłego to już pełne rozmiary charakterystyczne dla gatunku</p>
+        </div>
+    </a>
+</div>
+
+
+<a href="index.html" class="back-button">⬅ Powrót do głównej galerii</a>
+
+</body>
+</html>
